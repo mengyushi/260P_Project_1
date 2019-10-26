@@ -82,8 +82,6 @@ int doalg(int n, int k, int Best[]) {
 	int i,j,m;
 	int Heap[k];
 
-	static int number[5] = {1,2,3,4,5};
-
 	j = 0;
 
 	for (i=1; i<=n; i++) {
