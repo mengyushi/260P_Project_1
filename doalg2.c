@@ -4,13 +4,15 @@
 #define MAXK 100
 
 void shiftUp(int Heap[], int i) {
+	puts("		====== SHIFT UP START ======");
 
 	int temp;
 
 	printf("i = %d (i+1)/2)-1 = %d\n", i, ((i+1)/2)-1);
+	printf("COMPARE = %d\n", COMPARE(Heap[((i+1)/2)-1],Heap[i]));
 
 	while (i>0 && COMPARE(Heap[((i+1)/2)-1],Heap[i])==1) {
-		printf("		====== Shift up\n");
+		printf(" ###### Shift up ###### \n");
 		temp = Heap[i];
 		Heap[i] = Heap[((i+1)/2)-1];
 		Heap[((i+1)/2)-1] = temp;
@@ -80,17 +82,19 @@ int doalg(int n, int k, int Best[]) {
 	int i,j,m;
 	int Heap[k];
 
-	static int number[5] = {6,4,3,2,5};
+	static int number[5] = {1,2,3,4,5};
 
 	j = 0;
 
 	for (i=1; i<=n; i++) {
-
+		printf("\n\n");
 		printf("current i = %d\n", i);
 
 		if (j<k) {
 			Heap[j] = i;
 			shiftUp(Heap, j);
+
+			printf("	====== Shift up finished\n");
 
 			for (m=0; m<=j; m++) {
 				printf("%d st value's index is %d and its value is ?\n",m,Heap[m]);	
@@ -98,8 +102,7 @@ int doalg(int n, int k, int Best[]) {
 
 			j+=1;
 
-		}
-		else{
+		}else{
 
 			printf("Heap is full. Current root with idx %d\n", Heap[0]);
 
@@ -112,30 +115,12 @@ int doalg(int n, int k, int Best[]) {
 				shiftDown(Heap, 0, k);
 			}
 
+			printf("	====== Shift down finished\n");
 
 			for (m=0; m<k; m++) {
 				printf("%d st value's index is %d and its value is ?\n",m,Heap[m]);	
 			}
 		}
 	}
-
-	for (m=0; m<k; m++) {
-		printf("%d st value's index is %d\n",m,Heap[m]);	
-	}	
-
-
-	puts("		====== HERE FINISHED DOALG ======");
-
-	for (i=k-1;i>=0;i--){
-		Best[i] = Heap[0];
-		Heap[0] = Heap[i];
-		// printf("Current i %d\n",i);
-		shiftDown(Heap, 0, i);
-	}
-
-	for (m=0; m<k; m++) {
-		printf("%d\n",Best[m]);	
-	}	
-
-	return(1);
+	return(1);	
 }

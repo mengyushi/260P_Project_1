@@ -1,8 +1,8 @@
 #include <stdio.h>
 #define MAXN 10000
 #define MAXK 100
-#include "COMPARE.c"
-#include "doalg.c"
+#include "MYCOMPARE.c"
+#include "doalg2.c"
 int main(){
 	int N = 10000;
 	int K = 40;
@@ -11,12 +11,14 @@ int main(){
 
 	total = 0;
 	biggest = -1;
-	
-	// for (loop=0; loop<1000; loop++) {
-	// 	n = N;
-	// 	k = K;
+
+	for (loop=0; loop<1; loop++) {
+		printf(" ====== At loop=%d\n",loop);
+		n = N;
+		k = K;
 	// 	COMPARE(0,n);
-	// 	flag = doalg( n, k, Best);
+		flag = doalg( 5, 4, Best);
+		printf(" ====== flag=%d\n",flag);
 	// 	if (flag==0) {
 	// 		printf(" *** flagged error at loop=%d\n",loop);
 	// 		return(0);
@@ -28,7 +30,7 @@ int main(){
 	// 	}
 	// 	if (ct>biggest) biggest=ct;
 	// 	total += ct;
-	// }
+	}
 	// printf("n=%5d,  k=%d:  maximum= %d,  avg=%8.2f\n",
 	// 	N,K,biggest,(1.0*total)/1000);
 	// fflush(stdout);
