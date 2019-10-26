@@ -23,7 +23,8 @@ int COMPARE(int arg1, int arg2, ...) {
 /*		returns -1000 if any of the indices are wrong	*/
 /*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */
 	va_list ap;
-	static int number[COMPARELIMIT+1];
+	// static int number[COMPARELIMIT+1];
+	static int number[6] = {0,1,2,3,4,5};
 	static int comp, size=0;
 	int *Best;
 	int i,j,t;
@@ -66,11 +67,16 @@ int COMPARE(int arg1, int arg2, ...) {
 		}
 		return(comp);
 	}
-	if (arg1<1 || arg2<1 || arg1>size || arg2>size || arg1==arg2) return(-1);
-	comp++;
+
 	if (number[arg1]>number[arg2])
 		return(1);
 	else	return(2);
+
+	// if (arg1<1 || arg2<1 || arg1>size || arg2>size || arg1==arg2) return(-1);
+	// comp++;
+	// if (number[arg1]>number[arg2])
+	// 	return(1);
+	// else	return(2);
 }
 double dshrandom( ) {
 /*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */
