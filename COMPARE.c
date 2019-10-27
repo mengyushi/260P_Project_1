@@ -24,7 +24,7 @@ int COMPARE(int arg1, int arg2, ...) {
 /*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */
 	va_list ap;
 	// static int number[COMPARELIMIT+1];
-	static int number[6] = {0,1,2,3,4,5};
+	static int number[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
 	static int comp, size=0;
 	int *Best;
 	int i,j,t;

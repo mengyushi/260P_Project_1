@@ -4,8 +4,8 @@
 #include "COMPARE.c"
 #include "doalg2.c"
 int main(){
-	int N = 10000;
-	int K = 40;
+	int N = 11;
+	int K = 5;
 	int Best[MAXK];
 	int k,n,flag,round,ct,loop,biggest,total;
 
@@ -16,8 +16,8 @@ int main(){
 		printf(" ====== At loop=%d\n",loop);
 		n = N;
 		k = K;
-	// 	COMPARE(0,n);
-		flag = doalg( 5, 4, Best);
+		// COMPARE(0,n);
+		flag = doalg( 11, 5, Best);
 		printf(" ====== flag=%d\n",flag);
 	// 	if (flag==0) {
 	// 		printf(" *** flagged error at loop=%d\n",loop);

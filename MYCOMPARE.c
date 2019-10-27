@@ -22,7 +22,7 @@ int COMPARE(int arg1, int arg2, ...) {
 /*		returns -1 if "k" is out of range		*/
 /*		returns -1000 if any of the indices are wrong	*/
 /*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */
-	static int number[6] = {0,1,2,3,4,5};
+	static int number[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
 	// printf("Compared id %d => %d and %d => %d\n", arg1, number[arg1], arg2, number[arg2]);	
 	if (number[arg1]>number[arg2])
 		return(1);

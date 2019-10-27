@@ -23,7 +23,7 @@ void shiftUp(int Heap[], int i) {
 
 void shiftDown(int Heap[], int i, int k) {
 	// printf("			====== Shift down i = %d k = %d\n", i, k);
-	int temp, l, r, leftIdx, rightIdx;
+	int temp, l, r, leftIdx, rightIdx,m;
 
 	while (((i+1)*2-1)<k) {
 		// printf("`````````");
@@ -35,39 +35,50 @@ void shiftDown(int Heap[], int i, int k) {
 			l = COMPARE(leftIdx,Heap[i]);
 			r = COMPARE(rightIdx,Heap[i]);
 
+			printf("leftIdx = %d, rightIdx = %d", leftIdx, rightIdx);
+
 			if (l==2 && r==2){
+
 				if (COMPARE(leftIdx,rightIdx)==1){
+
 					temp = Heap[i];
-					Heap[i] = Heap[rightIdx];
-					Heap[rightIdx] = temp;
-					i=r;
+					Heap[i] = rightIdx;
+					Heap[((i+1)*2)] = temp;
+					i=((i+1)*2);		
+
 				}else{
 					temp = Heap[i];
-					Heap[i] = Heap[leftIdx];
-					Heap[leftIdx] = temp;	
-					i=l;				
+					Heap[i] = leftIdx;
+					Heap[((i+1)*2-1)] = temp;	
+					i=((i+1)*2)-1;		
+
+					printf("\n\n\n\n\n");
+					
+					for (m=0; m<k; m++) {
+						printf("&&&&&&&&&& %d st value's index is %d and its value is ?\n",m,Heap[m]);	
+					}			
 				}
 			}else{
 				if (l==2) {
 					temp = Heap[i];
-					Heap[i] = Heap[leftIdx];
-					Heap[leftIdx] = temp;	
-					i=l;				 	
+					Heap[i] = leftIdx;
+					Heap[((i+1)*2-1)] = temp;	
+					i=((i+1)*2)-1;				 	
 				}
 				if (r==2) {
 					temp = Heap[i];
-					Heap[i] = Heap[rightIdx];
-					Heap[rightIdx] = temp;		
-					i=r;		 	
+					Heap[i] = rightIdx;
+					Heap[((i+1)*2)] = temp;		
+					i=((i+1)*2);		 	
 				}
 			}
 		}else{
 			l = COMPARE(leftIdx,i);
 			if (l==2) {
 				temp = Heap[i];
-				Heap[i] = Heap[leftIdx];
-				Heap[leftIdx] = temp;	
-				i=l;				 	
+				Heap[i] = leftIdx;
+				Heap[((i+1)*2-1)] = temp;	
+				i=((i+1)*2)-1;				 	
 			}else{
 				break;
 			}			
@@ -77,6 +88,7 @@ void shiftDown(int Heap[], int i, int k) {
 }
 
 int doalg(int n, int k, int Best[]) {
+	
 	puts("		====== HERE ENTERED DOALG ======");
 	
 	int i,j,m;
