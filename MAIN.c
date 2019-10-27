@@ -16,9 +16,10 @@ int main(){
 		printf(" ====== At loop=%d\n",loop);
 		n = N;
 		k = K;
-		COMPARE(0,n);
+		COMPARE(0,11);
 		flag = doalg( 11, 5, Best);
 		printf(" ====== flag=%d\n",flag);
+
 	// 	if (flag==0) {
 	// 		printf(" *** flagged error at loop=%d\n",loop);
 	// 		return(0);

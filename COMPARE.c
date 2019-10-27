@@ -31,13 +31,12 @@ int COMPARE(int arg1, int arg2, ...) {
 
 	if (arg1==0) {
 
-		for (i=0; i<=11; i++) number[i] = i;
-
-		// if (arg2<10 || arg2>COMPARELIMIT) {
-		// 	printf("******* ERROR: COMPARE(0,size) -- 'size' out of range ********** size=%d\n",arg2);
-		// 	return(-1);
-		// }
-		// for (i=1; i<=arg2; i++) number[i] = i;
+		if (arg2<10 || arg2>COMPARELIMIT) {
+			printf("******* ERROR: COMPARE(0,size) -- 'size' out of range ********** size=%d\n",arg2);
+			return(-1);
+		}
+		
+		for (i=1; i<=arg2; i++) number[i] = i;
 		// for (i=arg2; i>=1; i--){
 		// 	j = i*dshrandom( ) + 1;
 		// 	if (j!=i) {

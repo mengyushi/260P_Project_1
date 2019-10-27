@@ -22,12 +22,16 @@ void shiftUp(int Heap[], int i) {
 }
 
 void shiftDown(int Heap[], int i, int k) {
-	// printf("			====== Shift down i = %d k = %d\n", i, k);
+
+	printf("			====== Shift down i = %d k = %d\n", i, k);
+
 	int temp, l, r, leftIdx, rightIdx,m;
 
 	while (((i+1)*2-1)<k) {
+
 		// printf("`````````");
 		leftIdx = Heap[((i+1)*2-1)];
+		
 		if (((i+1)*2)<k) {
 			rightIdx = Heap[((i+1)*2)];
 
@@ -35,7 +39,7 @@ void shiftDown(int Heap[], int i, int k) {
 			l = COMPARE(leftIdx,Heap[i]);
 			r = COMPARE(rightIdx,Heap[i]);
 
-			printf("leftIdx = %d, rightIdx = %d", leftIdx, rightIdx);
+			printf("leftIdx = %d, rightIdx = %d\n", leftIdx, rightIdx);
 
 			if (l==2 && r==2){
 
@@ -59,6 +63,10 @@ void shiftDown(int Heap[], int i, int k) {
 					}			
 				}
 			}else{
+				if (l==1 && r ==1) {
+					break;
+				}
+
 				if (l==2) {
 					temp = Heap[i];
 					Heap[i] = leftIdx;
@@ -72,8 +80,11 @@ void shiftDown(int Heap[], int i, int k) {
 					i=((i+1)*2);		 	
 				}
 			}
+
 		}else{
+
 			l = COMPARE(leftIdx,i);
+
 			if (l==2) {
 				temp = Heap[i];
 				Heap[i] = leftIdx;
@@ -88,7 +99,7 @@ void shiftDown(int Heap[], int i, int k) {
 }
 
 int doalg(int n, int k, int Best[]) {
-	
+
 	puts("		====== HERE ENTERED DOALG ======");
 	
 	int i,j,m;
@@ -132,5 +143,21 @@ int doalg(int n, int k, int Best[]) {
 			}
 		}
 	}
+
+
+	for (i=0; i<k; i++) {
+
+		printf("i = %d, swith_with = %d\n",i,k-1-i);
+
+	// 	Best[i] = Heap[0];
+		printf("POP %d\n",Heap[0]);
+		Heap[0] = Heap[k-i-1];
+
+		shiftDown(Heap, 0, k-i);
+		for (m=0; m< k-i-1; m++) {
+			printf("%d st value's index is %d and its value is ?\n",m,Heap[m]);	
+		}		
+	}
+
 	return(1);	
 }
