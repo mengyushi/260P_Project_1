@@ -23,28 +23,31 @@ int COMPARE(int arg1, int arg2, ...) {
 /*		returns -1000 if any of the indices are wrong	*/
 /*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */
 	va_list ap;
-	// static int number[COMPARELIMIT+1];
-	static int number[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
+	static int number[COMPARELIMIT+1];
+	// static int number[12] = {0,1,2,3,4,5,6,7,8,9,10,11};
 	static int comp, size=0;
 	int *Best;
 	int i,j,t;
 
 	if (arg1==0) {
-		if (arg2<10 || arg2>COMPARELIMIT) {
-			printf("******* ERROR: COMPARE(0,size) -- 'size' out of range ********** size=%d\n",arg2);
-			return(-1);
-		}
-		for (i=1; i<=arg2; i++) number[i] = i;
-		for (i=arg2; i>=1; i--){
-			j = i*dshrandom( ) + 1;
-			if (j!=i) {
-				t = number[i];
-				number[i] = number[j];
-				number[j] = t;
-			}
-		}
-		comp = 0;
-		size = arg2;
+
+		for (i=0; i<=11; i++) number[i] = i;
+
+		// if (arg2<10 || arg2>COMPARELIMIT) {
+		// 	printf("******* ERROR: COMPARE(0,size) -- 'size' out of range ********** size=%d\n",arg2);
+		// 	return(-1);
+		// }
+		// for (i=1; i<=arg2; i++) number[i] = i;
+		// for (i=arg2; i>=1; i--){
+		// 	j = i*dshrandom( ) + 1;
+		// 	if (j!=i) {
+		// 		t = number[i];
+		// 		number[i] = number[j];
+		// 		number[j] = t;
+		// 	}
+		// }
+		// comp = 0;
+		// size = arg2;
 		return(0);
 	}
 	if (arg1==-1) {
